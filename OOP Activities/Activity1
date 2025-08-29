@@ -1,0 +1,35 @@
+# Parent class
+class Device:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def device_info(self):
+        return f"{self.brand} {self.model}"
+
+
+# Child class (inherits from Device)
+class Smartphone(Device):
+    def __init__(self, brand, model, storage, battery):
+        super().__init__(brand, model)   # Call parent constructor
+        self.storage = storage
+        self.battery = battery
+
+    def call(self, number):
+        return f"Calling {number} using {self.device_info()}"
+
+    def charge(self):
+        return f"{self.device_info()} is charging..."
+
+    def phone_info(self):
+        return f"{self.device_info()} | Storage: {self.storage}GB | Battery: {self.battery}mAh"
+
+
+# Creating objects
+phone1 = Smartphone("Samsung", "Galaxy S24", 256, 5000)
+phone2 = Smartphone("Apple", "iPhone 15", 128, 4200)
+
+# Testing methods
+print(phone1.phone_info())
+print(phone1.call("+123456789"))
+print(phone2.charge())
